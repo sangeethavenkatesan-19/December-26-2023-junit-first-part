@@ -1,5 +1,4 @@
-package Phase2_26MondayOne; 
-
+package Google;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,12 +8,11 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-@DisplayName("Amazon Homepage Test")
-class AmazonHomePage {
+class GoogleHomePageTest {
 
-	// step1: formulate a test domain url & driver path
-	String siteUrl = "https://www.amazon.in/";
-	String driverPath = "drivers/windows/geckodriver.exe";
+	//step 1: formulate a test domain url and driver path
+	String siteUrl = "https://www.google.com/";
+	String driverPath = "drivers/windows/chromedriver.exe";	
 	WebDriver driver;
 
 	@BeforeEach
@@ -37,25 +35,8 @@ class AmazonHomePage {
 
 	@Test
 	@RepeatedTest(value = 3 , name = RepeatedTest.LONG_DISPLAY_NAME)
-	@DisplayName("Should validate Amazon Homepage title")
-	void testAmazonHomePageTitle() {
-		String expectedTitle = "Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in";
-		String actualTitle = driver.getTitle();
-		assertEquals(actualTitle, expectedTitle);
-	}
-	
-	@Test
-	@DisplayName("Should validate Amazon Homepage source url")
+	@DisplayName("Should validate Google Homepage source url")
 	public void testAmazonHomePageSourceUrl() {
 		assertEquals(siteUrl, driver.getCurrentUrl());
 	}
-	
-	@Test
-	@DisplayName("Should validate Amazon Homepage for invalid title")
-	public void testAmazonHomePageTitle2() {
-		String expectedTitle = "OOnline SShopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in";
-		String actualTitle = driver.getTitle();
-		assertNotEquals(actualTitle, expectedTitle);
-	}
-
 }
